@@ -1,6 +1,13 @@
-﻿namespace BasketService.EntityModels
+﻿using System;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace BasketService.EntityModels
 {
-    internal class ProductTypeEntity
+    public class ProductTypeEntity
     {
+        [Key]
+        public Guid Id { get; set; }
+        public string Description { get; set; }
     }
 }

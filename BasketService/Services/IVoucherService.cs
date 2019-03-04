@@ -1,10 +1,13 @@
-﻿using System;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+using BasketService.DTOs;
+
 namespace BasketService.Services
 {
-    public class IVoucherService
+    public interface IVoucherService
     {
-        public IVoucherService()
-        {
-        }
+        Task<decimal> DeductGiftVouchers(IEnumerable<string> voucherCodes, decimal amount);
+        Task<string> CheckVoucherIsValidAsync(BasketDTO basket, string voucherCode);
+        Task<decimal> DeductOfferVoucher(string voucherCode, decimal basketAmount);
     }
 }

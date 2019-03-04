@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using BasketService.DomainModels;
+
 namespace BasketService.Data
 {
-    public class IProductRepository
+    public interface IProductRepository
     {
-        public IProductRepository()
-        {
-        }
+        Task<IEnumerable<ProductDomainModel>> GetProductsAsync(IEnumerable<Guid> ids);
     }
 }

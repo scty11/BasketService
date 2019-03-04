@@ -11,7 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace BasketService.ComponentTests.Configuration
 {
-    public class SqlServerTestFactory : WebApplicationFactory<Startup>
+    public class SqlLiteTestFactory : WebApplicationFactory<Startup>
     {
         protected override IWebHostBuilder CreateWebHostBuilder()
         {
@@ -29,7 +29,7 @@ namespace BasketService.ComponentTests.Configuration
 
                         builder.UseApplicationServiceProvider(provider);
 
-                        builder.UseSqlite(TestConstants.SqlConnectionString);
+                        builder.UseSqlite(TestConstants.ConnectionString);
 
                         return builder.Options;
                     });

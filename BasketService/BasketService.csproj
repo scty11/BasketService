@@ -6,10 +6,34 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\" />
+    <Folder Include="EntityModels\" />
+    <Folder Include="Data\" />
+    <Folder Include="Services\" />
+    <Folder Include="DomainModels\" />
+    <Folder Include="Mappers\" />
+    <Folder Include="DTOs\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="2.1.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="6.0.0" />
+    <PackageReference Include="FluentAssertions" Version="5.6.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Remove="EntityModels\Product.cs" />
+    <Compile Remove="Migrations\20190303010014_InitialCreate.Designer.cs" />
+    <Compile Remove="Migrations\20190303010014_InitialCreate.cs" />
+    <Compile Remove="Migrations\BasketDbContextModelSnapshot.cs" />
+    <Compile Remove="Services\guid.cs" />
+    <Compile Remove="Controllers\ValuesController.cs" />
+    <Compile Remove="Migrations\20190303214037_InitialCreate.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="appsettings.Development.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Basket.sqlite" />
+  </ItemGroup>
 </Project>

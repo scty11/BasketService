@@ -1,10 +1,8 @@
-﻿using System;
+﻿using Xunit;
 namespace BasketService.ComponentTests.Configuration
 {
-    public class SqlLiteTestCollection
+    [CollectionDefinition("SQL server test collection")]
+    public class SqlLiteTestCollection : ICollectionFixture<SqlLiteTestSetup>
     {
-        public SqlLiteTestCollection()
-        {
-        }
     }
 }

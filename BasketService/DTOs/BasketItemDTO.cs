@@ -1,10 +1,8 @@
-﻿using System;
-namespace BasketService.DTOs
+﻿namespace BasketService.DTOs
 {
     public class BasketItemDTO
     {
-        public BasketItemDTO()
-        {
-        }
+        public ProductDTO Product { get; set; }
+        public int Quantity { get; set; }
     }
 }

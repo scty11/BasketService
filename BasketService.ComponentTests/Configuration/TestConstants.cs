@@ -1,10 +1,7 @@
-﻿using System;
-namespace BasketService.ComponentTests.Configuration
+﻿namespace BasketService.ComponentTests.Configuration
 {
-    public class TestConstants
+    public static class TestConstants
     {
-        public TestConstants()
-        {
-        }
+        public const string ConnectionString = "Data Source=BasketTest.sqlite";
     }
 }
