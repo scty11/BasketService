@@ -5,7 +5,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasketService", "BasketServ
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasketService.ComponentTests", "BasketService.ComponentTests\BasketService.ComponentTests.csproj", "{33EBBB59-5F18-4998-AE26-2BDC4B30DD69}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasketServiceUnitTests", "BasketServiceUnitTests\BasketServiceUnitTests.csproj", "{F500A403-9B26-41D0-BD26-F7BD98C1CABB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasketService.UnitTests", "BasketServiceUnitTests\BasketService.UnitTests.csproj", "{F500A403-9B26-41D0-BD26-F7BD98C1CABB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
