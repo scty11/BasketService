@@ -42,7 +42,6 @@ namespace BasketService.Controllers
             }
 
             var basket = new BasketDTO();
-
             foreach (var basketItem in basketItems)
             {
                 basket.BasketTotal += basketItem.Product.Price * basketItem.Quantity;
@@ -51,10 +50,13 @@ namespace BasketService.Controllers
 
             if (!string.IsNullOrEmpty(createBasket.OfferVoucherCode))
             {
-                basket.Message = await _voucherService.CheckVoucherIsValidAsync(basket, createBasket.OfferVoucherCode);
+                var offerVoucher = await _voucherService.GetOfferVoucherAsync(createBasket.OfferVoucherCode);
+                if (offerVoucher == null)
+                    return NotFound($"{nameof(offerVoucher)} not found");
+
+                basket.Message = _voucherService.CheckVoucherIsValidAsync(basket, offerVoucher);
                 if (string.IsNullOrEmpty(basket.Message))
-                    basket.BasketDiscountTotal =
-                        await _voucherService.DeductOfferVoucher(createBasket.OfferVoucherCode, basket.BasketTotal);
+                    basket.BasketDiscountTotal = basket.BasketTotal - offerVoucher.Amount;
             }
 
             if (createBasket.GiftVoucherCodes.Any())

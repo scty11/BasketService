@@ -1,6 +1,10 @@
 ﻿using AutoMapper;
 using BasketService.Data;
+using BasketService.DTOs;
 using BasketService.Services;
+using BasketService.Validators;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -25,12 +29,15 @@ namespace BasketService
                 options.UseSqlite(Configuration.GetConnectionString("DefaultConnectionString")));
 
             services.AddAutoMapper();
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc()
+                .AddFluentValidation()
+                .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             services.AddTransient<IVoucherRepository, VoucherRepository>();
             services.AddTransient<IProductRepository, ProductRepository>();
             services.AddTransient<IProductService, ProductService>();
             services.AddTransient<IVoucherService, VoucherService>();
+            services.AddTransient<IValidator<CreateBasketDTO>, CreateBasketDTOValidator>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
